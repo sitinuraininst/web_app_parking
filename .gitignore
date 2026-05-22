@@ -1,0 +1,60 @@
+# ============================================================
+# Smart Parking UMSU — .gitignore
+# ============================================================
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# --- Virtual Environment ---
+venv/
+.venv/
+env/
+ENV/
+
+# --- Environment Variables ---
+.env
+.env.local
+.env.production
+!.env.example
+
+# --- IDE ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Node.js (Phase 3) ---
+node_modules/
+.next/
+out/
+.turbo/
+
+# --- Docker ---
+docker-compose.override.yml
+
+# --- Logs ---
+*.log
+logs/
+
+# --- Coverage ---
+htmlcov/
+.coverage
+coverage.xml
+
+# --- Misc ---
+*.bak
+*.tmp
