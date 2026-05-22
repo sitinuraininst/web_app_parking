@@ -3,7 +3,7 @@ import type { APIResponse, Vehicle, VehicleRegisterRequest, VehicleWithOwnerDeta
 
 export const vehicleApi = {
   register: async (data: VehicleRegisterRequest): Promise<APIResponse<Vehicle>> => {
-    const res = await api.post<APIResponse<Vehicle>>("/vehicles/", data);
+    const res = await api.post<APIResponse<Vehicle>>("/vehicles", data);
     return res.data;
   },
 
@@ -28,7 +28,7 @@ export const vehicleApi = {
   },
 
   listAll: async (params: { page?: number; page_size?: number; search?: string; jenis?: string }): Promise<PaginatedResponse<Vehicle>> => {
-    const res = await api.get<PaginatedResponse<Vehicle>>("/vehicles/", { params });
+    const res = await api.get<PaginatedResponse<Vehicle>>("/vehicles", { params });
     return res.data;
   },
 
