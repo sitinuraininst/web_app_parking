@@ -38,7 +38,7 @@ class Settings(BaseSettings):
     # ── CORS ───────────────────────────────────────────────
     # In production, this should be a comma-separated list of exact domains.
     # In development, CORS is overridden to allow all origins ("*") for ngrok/mobile testing.
-    allowed_origins: str = "http://localhost:3000,http://192.168.1.9:3000"
+    allowed_origins: str = "http://localhost:3000,http://192.168.1.9:3000,https://web-app-parking.vercel.app"
 
     # ── Parking ────────────────────────────────────────────
     scan_cooldown_seconds: int = 30

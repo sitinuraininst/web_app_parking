@@ -13,6 +13,7 @@ const api = axios.create({
 // ── Request Interceptor: attach JWT token ─────────────────
 api.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
+    console.log("[Axios Request]", config.method?.toUpperCase(), config.baseURL, config.url);
     if (typeof window !== "undefined") {
       const token = localStorage.getItem("access_token");
       if (token) {
@@ -26,8 +27,12 @@ api.interceptors.request.use(
 
 // ── Response Interceptor: handle 401 and 503 globally ─────────────
 api.interceptors.response.use(
-  (response) => response,
+  (response) => {
+    console.log("[Axios Response Success]", response.status, response.data);
+    return response;
+  },
   (error: AxiosError) => {
+    console.error("[Axios Response Error]", error.response?.status, error.response?.data);
     if (typeof window !== "undefined") {
       if (error.response?.status === 401) {
         localStorage.removeItem("access_token");

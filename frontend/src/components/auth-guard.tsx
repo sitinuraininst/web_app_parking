@@ -47,8 +47,17 @@ export function AuthGuard({
       return;
     }
 
+    // TEMPORARY LOGGING FOR DEBUGGING
+    console.log("[AuthGuard Debug]", {
+      role: user?.role,
+      pathname,
+      isAuthenticated,
+      isHydrated
+    });
+
     // Role-based redirect: if user is authenticated but not in allowedRoles
     if (allowedRoles && user && !allowedRoles.includes(user.role)) {
+      console.log(`[AuthGuard] Redirecting from ${pathname} to ${getRoleDashboardPath(user.role)} because role ${user.role} is not in allowedRoles:`, allowedRoles);
       router.replace(getRoleDashboardPath(user.role));
       return;
     }

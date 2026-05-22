@@ -48,7 +48,8 @@ docker-compose.override.yml
 
 # --- Logs ---
 *.log
-logs/
+/logs/
+/backend/logs/
 
 # --- Coverage ---
 htmlcov/

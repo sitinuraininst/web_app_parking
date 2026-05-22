@@ -51,7 +51,7 @@ export default function VehiclesPage() {
 
       {/* Vehicle List */}
       {isLoading ? (
-        <div className="space-y-3">{[1,2,3].map(i => <Skeleton key={i} className="h-24 w-full rounded-xl" />)}</div>
+        <div className="space-y-3">{[1, 2, 3].map(i => <Skeleton key={i} className="h-24 w-full rounded-xl" />)}</div>
       ) : vehicles.length === 0 ? (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-16">
           <Car className="h-14 w-14 text-slate-600 mx-auto mb-4" />
