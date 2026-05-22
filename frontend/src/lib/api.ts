@@ -1,6 +1,9 @@
 import axios, { AxiosError, InternalAxiosRequestConfig } from "axios";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "";
+const isProd = process.env.NODE_ENV === "production";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL?.startsWith('http')
+  ? process.env.NEXT_PUBLIC_API_URL.replace(/^http:\/\//i, 'https://')
+  : (isProd ? "https://webappparking-production.up.railway.app" : "");
 
 const api = axios.create({
   baseURL: `${API_BASE_URL}/api`,
